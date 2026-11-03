@@ -131,7 +131,8 @@ struct LCAppListView : View, LCAppBannerDelegate, LCAppModelDelegate {
                 })
                 .hidden()
                 
-                LazyVStack {
+LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 12)], spacing: 12) {
+
                     ForEach(filteredApps, id: \.self) { app in
                         LCAppBanner(appModel: app, delegate: self)
                     }
@@ -205,6 +206,22 @@ struct LCAppListView : View, LCAppBannerDelegate, LCAppModelDelegate {
             }
             .navigationBarProgressBar(show:$installprogressVisible, progress: $installProgressPercentage)
             .coordinateSpace(name: "scroll")
+            .background(
+    ZStack {
+        LinearGradient(
+            colors: [
+                Color(red: 1.0, green: 0.78, blue: 0.86),
+                Color(red: 0.62, green: 0.78, blue: 1.0),
+                Color(red: 0.36, green: 0.55, blue: 0.95)
+            ],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        Color(.systemBackground).opacity(0.35)
+    }
+    .ignoresSafeArea()
+)
+
             .onAppear {
                 if !didAppear {
                     onAppear()
