@@ -217,7 +217,7 @@ LazyVGrid(columns: [GridItem(.adaptive(minimum: 76), spacing: 8)], spacing: 8) {
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
-        Color(.systemBackground).opacity(0.35)
+        Color.black.opacity(0.2)
     }
     .ignoresSafeArea()
 )
