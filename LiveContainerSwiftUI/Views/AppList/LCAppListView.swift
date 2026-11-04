@@ -131,7 +131,7 @@ struct LCAppListView : View, LCAppBannerDelegate, LCAppModelDelegate {
                 })
                 .hidden()
                 
-LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 12)], spacing: 12) {
+LazyVGrid(columns: [GridItem(.adaptive(minimum: 76), spacing: 8)], spacing: 8) { 
 
                     ForEach(filteredApps, id: \.self) { app in
                         LCAppBanner(appModel: app, delegate: self)
